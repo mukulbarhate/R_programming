@@ -1,0 +1,1131 @@
+#### Assignment Create vectors
+#a. (1, 2, 3, . . . , 19, 20)
+#b. (20, 19, . . . , 2, 1)
+#c. (1, 2, 3, . . . , 19, 20, 19, 18, . . . , 2, 1)
+#d. (4, 6, 3) and assign it to the name tmp.
+#e. (4, 6, 3, 4, 6, 3, . . . , 4, 6, 3) where there are 10 occurrences of 4.
+#f. (4, 6, 3, 4, 6, 3, . . . , 4, 6, 3, 4) where there are 11 occurrences of 4, 10
+#occurrences of 6 and 10 occurrences of 3.
+#g. (4, 4, . . . , 4, 6, 6, . . . , 6, 3, 3, . . . , 3) where there are 10 occurrences of
+#4, 20 occurrences of 6 and 30 occurrences of 3.
+
+v1<-c(1:20);v1
+
+v2=c(20:1);v2
+
+v3=c(v1,19:1);v3
+?names()
+temp=c(4,6,3);temp
+names(temp)=c(4,6,3);temp
+
+v4=rep(c(4,6,3),9);v4
+v5=rep(4,1)
+v6<-c(v4,v5);v6
+
+v4=rep(c(4,6,3),10);v4
+v5=rep(4,1)
+v6<-c(v4,v5);v6
+
+v4=rep(4,10);v4
+v5=rep(6,20)
+v6=rep(3,30)
+v7<-c(v4,v5,v6);v7
+
+v=c(0,1,2,3,4)
+
+mat<-matrix(0, nrow = 5,ncol = 5,byrow = T);m
+for (i in 1:5) {
+  mat[i, ]<-(i-1):(i+3)
+}
+print(mat)
+
+
+name<-readline("Enter name: ")
+age<-as.integer(readline("Enter age: "))
+print(paste('Name->',name,', Age->',age))
+
+employ<-data.frame("EmpID"=c(101,102,103,104,105),"Department"=c('Market','Sale','IT','Sales','IT'),
+                   'Salary'=c(1000,2000,1500,2000,1200));employ
+
+summary(employ)
+
+A<-matrix(1:4,2,2,byrow = T);A
+B<-matrix(5:8,2,2,byrow = T);B
+
+A
+A*B
+A/B
+C<-A%x%B;C
+D=A+B;D
+E=A-B;E
+A==B
+
+m <- matrix(1:12,4,3,byrow = T);m
+
+length(m)
+mode(m)
+l=m[m>6];l
+
+# c is used to combine or concatenate values it can also print what is written in the matrix
+l=m[,c(3,2,1)];l
+
+l=rbind(m,13:15);l
+?rbind(5,1:3)
+
+v=m[,1:2]=NA;m
+
+z=m[]=0;m
+v=c(m);v
+
+
+#### DATA FRAMES ####
+?data.frame
+v = c(14,26,38,30) ### use c() to store several values in one variable
+
+v_2= c("Hello","Good morning","Nice to meet you","Me too")
+
+?data.frame
+# Create data frame with 2 columns: v and v_2
+
+D_1 <- data.frame(v,v_2)
+D_1
+
+D_1 <- data.frame(v,v_2,row.names = c("A","B","C","D"))
+D_1
+
+rownames(D_1) = 1:4
+D_1
+?rownames
+class(D_1)
+row.names(D_1)[1] = "abc";D_1
+row.names(D_1)[1:2] = c("abc","d");D_1
+
+rownames(D_1)[1] = "e";D_1
+rownames(D_1)[c(1,4)] = c("x","y");D_1
+?rownames
+?row.names
+#D_1.head
+?head
+head(D_1)
+View(D_1)
+class(D_1)
+str(D_1)
+dim(D_1)
+?data.frame
+D = data.frame(XYZ = c(10,11,12,13),ABC = c("A","B","C","D"))
+D
+
+D[-c(2,4),]
+a = c(2,"F")
+rbind(D,a)
+?cbind
+b = data.frame(XYZ = c(14,15),ABC = c("E","F"));b
+rbind(D,b)
+str(D)
+D$ABC = as.factor(D$ABC);D
+D$XYZ = NULL;D
+?head
+# Change colnames of all columns 
+colnames(D_1) <- c("PQR", "STU")
+
+#Change name of one column
+colnames(D_1)[colnames(D_1) == "PQR"] <- "XYZ"
+names(D_1)
+colnames(D_1)[1] <- "UVW"
+D_1
+##
+fr_data <- data.frame("id" = c(1:5),fr_name = c("A","B","C","D","E"),stringsAsFactors = T)
+str(fr_data)
+summary(fr_data)
+fr_data <- data.frame("id" = c(1:5),fr_name = c("A","V","Z","D","E"),stringsAsFactors = T)
+str(fr_data)
+
+fr_data$id
+#expand a dataframe
+
+fr_data$KGF = c("X","Y","Z","1","2")
+
+#names(D_1)[3] <- "Employee"
+#names(D_1)
+letters[2:7]
+
+rep("shruti",7)
+#Reordering the dataframe by column number
+fr_data[c(2,3,1)]
+names(fr_data)
+#Reordering the dataframe by column name
+d <- fr_data[c("fr_name","KGF","id")]
+
+
+#Add new column
+
+D_1$Employee <- c("1", "2", "3", "4")
+D_1$Employee_New <- c(1,2,3,4)
+str(D_1) #to check structure of dataframe
+
+
+# Change colnames of some columns
+colnames(D_1)[colnames(D_1) %in% c("XYZ", "STU")] <- c("uvw", "def")
+
+
+
+#%in% operator in R, is used to identify if an element belongs to a vector.
+# Look at data frame's overall type
+class(D)
+
+# Look at columns' type
+class(D$XYZ)
+class(D$ABC)
+D$XYZ <- as.character(D$XYZ)
+D$ABC <- as.character(D$ABC)
+# Call a column in a data frame
+D_1$Employee # OR
+D_1$uvw
+#D_1[,1]
+
+# Create sub data frame with first 3 rows only
+D_2= D_1[1:3,]
+D_2
+
+#Practise
+#Create a dataframe which has 3 columns & 10 rows 
+#column 1 is serial no column 2 is name of the item
+#column is quantity purchase
+
+#add 4th column price of one quantity
+#add 5th column total price
+d$total_Price = d$quantity_purchase*d$b
+#if 20% discount is given then add column of new price
+
+d$new_price = d$total_price*0.8
+
+#missing values
+
+x = c(NA,2,3)
+y = c(6,7,8)
+z = c(10,11,NA)
+
+d7 = data.frame(x = x, y = y,z = z)
+#d8 = data.frame(x,y,z)
+
+is.na(d7)
+is.na(d7$x)
+
+sum(is.na(d7$x))
+sum(d7)
+sum(d7,na.rm = T)
+cleaned_data = na.omit(d7)
+sum(cleaned_data)
+
+#### LISTS ####
+#Lists are the R objects which contain elements of different types like - numbers,
+#strings, vectors and another list inside it. 
+#A list can also contain a matrix or a function as its elements.
+#List is created using list() function.
+
+?list()
+# Create a list containing strings, numbers, vectors and a logical
+# values.
+list_data <- list("Red", "Green", c(21,32,11), TRUE, 51.23, 119.1)
+length(list_data)
+
+print(list_data)
+
+#Naming List Element
+list_data <- list(c("Jan","Feb","Mar"), matrix(c(3,9,5,1,-2,8), nrow = 2),
+                  list("green",12.3))
+
+list_data = list(I_Quarter<- c("Jan","Feb","Mar"), A_Matrix<- matrix(c(3,9,5,1,-2,8), nrow = 2),
+                 A_Inner_list<- list("green",12.3))
+
+list_data = list(I_Quarter= c("Jan","Feb","Mar"), A_Matrix= matrix(c(3,9,5,1,-2,8), nrow = 2),
+                 A_Inner_list= list("green",12.3))
+names(list_data)
+list_data$I_Quarter
+list_data$A_Matrix
+
+
+
+list_data$A_Matrix[1,]
+list_data$A_Matrix[1,1]
+
+list_data[1]
+list_data[1][1]
+list_data[1][2]
+
+list_data[[1]]
+list_data[[1]][1]
+list_data[[1]][2]
+list_data[[1]][3]
+
+
+list_data[2]
+list_data[[2]][1]
+list_data[[2]][2]
+list_data[[2]][3]
+list_data[[2]][4]
+
+list_data[[3]][1]
+list_data[[3]][2]
+
+
+?list
+length(list_data)
+print(list_data)
+# Give names to the elements in the list.
+names(list_data)
+names(list_data) <- c("1st Quarter", "A_Matrix", "A Inner list")
+names(list_data)
+# Show the list.
+print(list_data)
+
+
+#Acessing List Elements
+#Acessing elements from the nested list
+
+
+# Access the first element of the list.
+print(list_data[1])
+
+#Practise
+list_data <- list(I_Quarter<- c("Jan","Feb","Mar"), A_Matrix<- matrix(c(3,9,5,1,-2,8), nrow = 2),
+                  A_Inner_list<- list("green",12.3))
+
+list_data[[1]] <- new_Quarter
+list_data
+new_Quarter <- c("June","July","Aug","Sept")
+
+
+# Access the third element. As it is also a list, all its elements will be printed.
+print(list_data[3])
+
+# Access the list element using the name of the element.
+print(list_data$A_Matrix)
+list_data$A_Matrix
+list_data[4]
+#Manipulating List Elements
+
+# Add element at the end of the list.
+list_data[4] <- "New element"
+list_data
+print(list_data[4])
+
+list_data[-1]
+# Remove the last element.
+list_data[4] <- NULL
+list_data
+length(list_data)
+# Print the 4th Element.
+print(list_data[4])
+
+# Update the 3rd Element.
+list_data[3] <- "updated element"
+print(list_data[3])
+
+#Merging List
+# Create two lists.
+list1 <- list(1,2,3)
+list2 <- list("Sun","Mon","Tue")
+
+# Merge the two lists.
+merged.list <- c(list1,list2)
+merged.list
+class(merged.list)
+# Print the merged list.
+print(merged.list)
+#append
+
+li = list('java','python')
+li
+
+li2 = append(li,2)
+li2
+
+li2 = append(li,2:3)
+li2
+?append
+#add element at specified position
+
+li = list('java','python',"C")
+li
+
+
+li2 = append(li,'r',after = 2)
+li2
+
+new = 1:21
+li2 = append(li,new)
+li2
+
+
+li = list(x = 'java',y = 'python',z = "C")
+li
+
+
+#new = 1:21
+new = 1:5
+li2 = append(li,new)
+li2
+
+li2 = append(li,new1 = 1:5)
+li2
+length(li2)
+install.packages("rlist")
+library(rlist)
+li = list(x = 'java',y = 'python',z = "C")
+li
+
+li2 = list.append(li,a = "R")
+li2
+
+li3 = list.append(li2,new)
+li3
+?append
+
+#renaming list elements
+
+li = list(x = 'java',y = 'python',z = "C")
+li
+names(li)
+
+names(li) = c("a","b","c")
+
+names(li)[names(li) == "c"] = "d"
+
+#() = "d"
+
+#= c("a","b","c")
+
+#[3]
+
+####  Factors ####
+#Factors are the data objects which are used to categorize the data
+#and store it as levels. They can store both strings and integers.
+#They are useful in the columns which have a limited number of unique values. 
+#Like "Male, "Female" and True, False etc. They are useful in data analysis for 
+#statistical modeling.
+
+#Factors are created using the factor () function by taking a vector as input.
+
+?factor
+# Create a vector as input.
+data <- c("East","West","East","North","North","East","West","West","West","East","North")
+
+print(data)
+print(is.factor(data))
+
+# Apply the factor function.
+factor_data <- factor(data)
+
+print(factor_data)
+class(factor_data)
+print(is.factor(factor_data))
+
+#Factors as Data_Frame
+# Create the vectors for data frame.
+height <- c(132,151,162,139,166,147,122)
+weight <- c(48,49,66,53,67,52,40)
+gender <- c("male","male","female","female","male","female","male")
+?as.factor
+# Create the data frame.
+input_data <- data.frame(height,weight,gender)
+print(input_data)
+str(input_data)
+# Test if the gender column is a factor.
+print(is.factor(input_data$gender))
+input_data$gender = as.factor(gender)
+as.factor(gender)
+
+#changing the labels
+input_data$gender = as.factor(input_data$gender,levels = c("male","female"),labels = c("male","female"))
+input_data$gender = as.factor(input_data$gender,levels("male","female"))
+input_data$gender = as.factor(input_data$gender,levels())
+?as.factor
+# Print the gender column so see the levels.
+print(input_data$gender)
+class(input_data$gender)
+#Changing the order of levels
+data <- c("East","West","East","North","North","East","West",
+          "West","West","East","North")
+# Create the factors
+factor_data <- factor(data)
+print(factor_data)
+
+# Apply the factor function with required order of the level.
+new_order_data <- factor(factor_data,levels = c("East","West","North"))
+print(new_order_data)
+
+?as.factor
+#Generating Factor Levels
+#We can generate factor levels by using the gl() function. 
+#It takes two integers as input which indicates how many levels
+#and how many times each level.
+?gl
+#Syntax
+#gl(n, k, labels)
+
+v <- gl(3, 4, labels = c("Tampa", "Seattle","Boston"))
+print(v)
+
+v1 <- gl(3, 4, labels = c("Thane", "Borivali"))
+print(v1)
+
+# Set working directory (tells R where to import files from/export files to)
+
+setwd("D:/C Drive/Desktop/SURAJ SINGH/Teaching/SM VITA/2022/OCT - SEPT/Lecture Notes/Data/")
+
+
+
+# Get working directory
+getwd()
+
+
+### Import  .txt with space separated values
+
+# read.table() function to import .txt files
+Titanic = read.table("Titanic_space_separated.txt", header=TRUE) # No "sep" term, as space is the default separator
+Titanic = read.table("D:/C Drive/Desktop/SURAJ SINGH/Teaching/C-DAC/Lecture Notes/Data/Titanic_space_separated.txt",header=TRUE)
+
+?read.table
+class(Titanic)
+
+
+### SEE DATA
+
+# See all data
+View(Titanic)
+
+head(Titanic)
+## See first 10 rows
+head(Titanic,10)
+
+tail(Titanic)
+# See last 5 rows
+tail(Titanic,5)
+
+str(Titanic)
+
+# Change column's type to character
+Titanic$Sex = as.factor(Titanic$Sex) # Sex column is overwritten by "character" version of Sex column
+
+summary(Titanic)
+
+# Change column's type to factor
+Titanic$Sex = as.factor(Titanic$Sex)
+
+
+### Import .txt with comma separated values
+
+# read.table() function to import .txt files
+Orange = read.table("Orange_comma_separated.txt", header = TRUE, sep = ",") # sep= "," for comma separated files
+class(Orange)
+View(Orange)
+summary(Orange)
+
+Orange$Tree = as.factor(Orange$Tree)
+
+
+### Import .csv file
+
+
+#  Use read.csv() to import .csv files
+
+Countries = read.csv("Countries Population.csv")
+
+names(Countries)
+summary(Countries)
+str(Countries)
+Countries$`Country Name` = as.factor(Countries$`Country Name`)
+Countries$`Country Code` = as.factor(Countries$`Country Code`)
+## Note: Column names have spaces in them, hence are not in proper format. R add `this quotes` to treat columns normally
+
+
+
+### Import excel document
+
+# Install readxl package to machine and load in Rsession to use read_excel() fucntion
+install.packages("readxl")
+library(readxl)
+
+# Use read_excel() to import xlsx documents
+Countries_Region1 <- read_excel("Countries Region Mapping.xlsx")
+View(Countries_Region)
+
+Countries_Region2 <- read_excel("Countries Region Mapping.xlsx",sheet = 2)
+View(Countries_Region2)
+
+
+#check all inbuilt dataset present in R
+data()
+#Data Exploration of inbuilt IRIS Dataset
+data <- iris
+View(data)
+?write.table
+?write.csv
+write.csv(data,file = "new_data.csv")
+#Check Dimension of data
+dim(data)
+a = 40000000000000000000000000
+print(a)
+format(a,scientific = F)
+
+write.csv(data,file = "D:/C Drive/Desktop/SURAJ SINGH/Teaching/C-DAC/Lecture Notes/new_data.csv")
+write.table(data,file = "D:/C Drive/Desktop/SURAJ SINGH/Teaching/C-DAC/Lecture Notes/new_data_comma.txt",sep = ",")
+Desktop
+#To check missing value
+missing_count <- sum(is.na(data))
+
+missing_count_1 <- sum(is.na(data$Sepal.Width))
+colSums(is.na(data))#in each variable
+#Calculate basic descriptive statistics
+str(data)
+summary(data)
+
+#is.na(data$Sepal.Length)
+
+#To calculate summary of a particular column, say third column
+summary(data[3])
+
+#To calculate summary of a particular column by its name
+summary(data$Petal.Length)
+
+#list names of variables in dataset
+names(data)
+
+#Calculate no of rows in datset
+nrow(data)
+
+#Calculate no of columns in datset
+ncol(data)
+
+#structure of dataset
+str(data)
+
+head(data) #default is first 6 values
+head(data,n=5) #to display n rows
+head(data,n = -1) #all rows except last row
+tail(data) #last 6 rows
+tail(data, n = 5) #last  n rows
+tail(data, n = -1) #all rows except first rows
+?data.frame
+datalife <- LifeCycleSavings
+names(LifeCycleSavings)
+newrows <- data.frame(sr = rep(2,10),pop15 = rep(3,10),pop75 = rep(4,10),dpi = rep(5,10),ddpi = rep(6,10),row.names = c("Ind","Pak","Aus","Sri","Ban","NZ","SA","WI","USA","CAN"))
+datalife = rbind(datalife,newrows)
+View(datalife)
+rep(2,10)
+
+#----------DataFrames in R---------------#
+
+# Check the list of pre-loaded dataset
+
+data()
+data(AirPassengers)
+head(AirPassengers)
+data(iris)
+head(iris)
+View(iris)
+View(state.x77)
+View(USPersonalExpenditure)
+tail(USPersonalExpenditure)
+
+# Check the statistical summary of a dataset
+summary(iris)
+
+# Check the structure of a dataset
+str(iris)
+
+# Creating a data frame using data.frame() function
+
+days <- c('mon','tue','wed','thu','fri')
+temp <- c(25.6,30.1,45,37.3,41.2)
+rain <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+
+df <- data.frame(days,temp,rain)
+print(df)
+summary(df)
+str(df)
+
+# Dataframe indexing
+
+df[1,] # Extract the first row
+df[,2] # Extract the second row
+
+# Selecting using column names
+df[,'temp'] # Extracts all the temperature values
+df[2:4,c('days','temp')] # extracts the 2nd, 3rd and 4th rows for days and temp
+
+# Use dollar sign if you want all the values of a particular column 
+
+df$days
+df$rain
+
+# Use bracket notation to return a data frame format of the same information
+df['rain']
+df['temp']
+
+# Filtering dataframes using a subset function
+
+subset(df,subset=rain==TRUE) # Returns all the columns where it rained 
+subset(df,subset= temp>25) # Returns all the columns where temperature>25
+
+# Sorting dataframes using order function
+?order
+sorted.temp <- order(df['temp'])
+df[sorted.temp,] # Returns the all the columns with temp sorted in ascending order
+sorted.temp
+
+desc.temp <- order(-df['temp']) # Returns the all the columns with temp sorted in descending order
+df[desc.temp,]
+sorter.temp1 = order(df[,"temp"])
+
+df[sorted.temp1]
+# Another method to sort
+sort.temp <- order(df$temp)
+df[sort.temp,]
+sort.temp <- order(-df$temp)
+order()
+# Merging Data Frames
+?I()
+authors <- data.frame(
+  surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
+  nationality = c("US", "Australia", "US", "UK", "Australia"),
+  deceased = c("yes", rep("no", 4)))
+
+books <- data.frame(
+  name = I(c("Tukey", "Venables", "Tierney",
+             "Ripley", "Ripley", "McNeil", "R Core")),
+  title = c("Exploratory Data Analysis",
+            "Modern Applied Statistics ...",
+            "LISP-STAT",
+            "Spatial Statistics", "Stochastic Simulation",
+            "Interactive Data Analysis",
+            "An Introduction to R"),
+  other.author = c(NA, "Ripley", NA, NA, NA, NA,
+                   "Venables & Smith"))
+
+authors
+books
+
+(m1 <- merge(authors, books, by.x = "surname", by.y = "name"))
+m1 <- merge(authors, books, by.x = "surname", by.y = "name")
+# Example to manipulate a dataframe 
+
+salesreport<-data.frame(Id=101:110,
+                        Product=c("A","B"),
+                        Unitprice=as.integer(runif(10,100,200)),
+                        Qty=as.integer(runif(10,10,20))
+)
+salesreport
+
+#1.Transpose data frame
+transpose.salesreport<-t(salesreport)
+View(transpose.salesreport)
+head(transpose.salesreport)
+
+#2.Sorting of data frame
+salesreport[order(salesreport$Unitprice),]
+salesreport[order(salesreport$Unitprice,decreasing = T),]
+
+salesreport[order(salesreport$Product,-salesreport$Unitprice),]
+
+#3.Subsetting data frame
+
+subset.ProductA<-subset(salesreport,Product=="A")
+subset.ProductA
+
+# Extact the rows for which Product is A and Unitprice > 150
+subset.salesreport<-subset(salesreport,Product=="A" & Unitprice>150)
+subset.salesreport
+
+# Extract only the first and the fourth column Product is A and Unitprice > 150
+subset.salesreport<-subset(salesreport,Product=="A" & Unitprice>150,c(1,3))
+subset.salesreport
+
+#4.Merging of data frame
+
+setA<-subset(salesreport,Product=="A")
+setB<-subset(salesreport,Product=="B")
+setA
+setB
+cbind(setA,setB)
+rbind(setA,setB)
+
+#5.Aggregate function
+#Total quantity sold for each product
+
+aggregate(salesreport$Qty,list(salesreport$Prod),sum,na.rm=T)
+
+#----------------------Lists in R------------------#
+
+list_1<-list(x=c(10,20,30),
+             y=c("a","b","c"),
+             z=c(TRUE,FALSE))
+list_1
+
+list2<-list(vec=seq(1:10),
+            mat=matrix(1:9,3,3),
+            lis=list(a=10,b=20))
+
+list2
+
+# Recursive variable->Variable that can store values of its own type.
+is.recursive(list2)
+
+# Indexing of list
+
+list2[2] # By index
+list2$mat # By dollar notation
+list2['vec'] # By name
+list2$lis[2] #3rd element 2nd value
+list2[[3]][2] #3rd element 2nd value
+
+length(list2)
+class(list2)
+
+#Conversion of vectors to list
+
+price<-c(10,20,30)
+pricelist<-as.list(price)
+pricelist
+price
+
+#Conversion of list to vector
+
+newPrice<-unlist(pricelist)
+newPrice
+
+# Use dim function to convert vectors to matrix
+
+price1<-c(10,20,30,40)
+dim(price1)<-c(2,2)
+price1
+
+#----------Basic data type functions------------#
+n1<-10
+class(n1) # Returns the datatype of the variable
+typeof(n1)
+n2<-10.5
+class(n2)
+typeof(n2)
+
+is.numeric(n1)  #is.numeric() function returns True if given value is numeric else false
+is.numeric(n2)
+
+I1<-as.integer(10) #as.integer converts the given value into integer
+I1
+I2<-as.integer(10.5)
+I2
+I3<-as.integer("10")
+class(I2)
+class(I1)
+class(I3)
+
+#All integers are numeric but all numerics are not integers.
+
+is.numeric(I1) #TRUE
+is.integer(I1) #TRUE
+
+c1<-"John"
+c2<-"Rob"
+class(c1)
+class(c2)
+is.character(c1)
+is.character(c2)
+
+toupper(c1) # Converts to uppercase
+substr(c1,1,2) # Extract set of characters
+name<-paste(c1,c2)
+name
+name1<-paste0(c1,c2)
+name1
+name<-paste(c1,c2,sep=",")
+name
+newname<-sub("Rob","Cena",name) # Replaces set of characters
+newname
+length(c1)
+nchar(c1)
+
+
+####Control Statements in R####
+#if conditon
+if (condition) {
+  
+}
+
+x <- -2
+
+if (x>0) {
+  print(paste(x,"is positive"))
+}
+
+?paste
+
+X = 77
+y = "is positive"
+z = "and it is natural number"
+print()
+
+paste(X,y,z)
+
+#if - else
+
+x <- -2
+if (x>0) {
+  print(paste(x,"is positive"))
+}else{
+  print(paste(x,"is negative"))}
+
+#if else if
+x <- 0
+class(x)
+if (x>0) {
+  print(paste(x,"is positive"))
+}else if (x<0){
+  print(paste(x,"is negative"))
+}else{
+  print(paste(x,"is neither positive nor negative"))
+}
+
+
+#check whether the no is even or odd using control statement?
+
+
+x=4
+if ( is.integer(x)) {
+  
+}else{
+  print(paste(x,"is not an integer"))}
+
+
+num = as.integer(readline("Enter a number: "))
+num = as.integer(readline("Enter a number: "))
+
+{
+  num1 = as.integer(readline("Enter I number: "))
+  num2 = as.integer(readline("Enter II number: "))
+  num3 = as.integer(readline("Enter III number: "))
+  num4 = as.integer(readline("Enter IV number: "))
+  
+}
+
+?scan
+x = scan() 
+
+x1 = scan(what = character())
+length(x1)
+x2 = scan(what = "")
+x2
+x3 = scan(what = logical())
+#for loop
+for (variable in vector) {
+  
+}
+letters#use for printing alphabets
+LETTERS
+20000000000000000000000000000000000
+format(20000000000000000000000000000000000,scientific = F)
+
+format(2000000000000,scientific = F)
+x<- letters[4:10]
+for (i in x) {
+  print(i)
+}
+
+
+for (q in 1:10) {
+  print(q)
+}
+#print multiplication table of 7 upto 7*22
+x=(1:22)
+for (i in x) { print(7*i)
+  
+}
+
+x <- 1:22
+for (i in x) {
+  print(paste("7*",i,'=',7*i))
+}
+
+v=seq(1,22)
+for (i in v) {
+  print(paste('7 x',i,'=',7*i))
+  
+}
+
+
+
+#take input from the user and print it's factorial
+
+num = as.integer(readline("Enter a number: "))
+fact = 1
+if(num < 0) {
+  print("no is negative so factorial does not exist ")
+} else if(num == 0) {
+  print("The factorial of 0 = 1")
+} else {
+  for(i in 1:num) {
+    fact = fact * i
+  }
+  print(paste("The factorial of", num ,"=",fact))
+}
+
+
+#While loop
+
+while (condition) {
+  
+}
+
+x = 2
+while (x<=5) {
+  print(x)
+  x = x+1
+}
+
+x = 2
+while (x<=5) {
+  print(x)
+  x = x+0.5
+}
+
+#Print multiplication table of 7 upto 7*22 using while loop
+
+num=7  
+while (num<=22) {
+  print(paste("7 X",num,"=",7*num))
+  num=num+1
+}
+
+
+#Print sum of first n natural numbers
+
+#repeat statement
+
+x = 6
+#print 1 to 7
+
+repeat{
+  print(x)
+  x = x+1
+  if (x>7) {
+    break
+  }
+}
+
+rivers
+
+
+max(c(10,20,30))
+#Print multiplication table of 7 upto 7*22 using repeat statement
+
+x=1
+repeat{
+  print(paste("7 X",x,"=",7*x))
+  x=x+1
+  if(x>22){
+    break
+  }
+}
+
+
+#next statement
+
+
+x <- 1:17
+
+#print even number
+
+for (i in x) {
+  if (i%%2 !=0) {
+    next
+  }
+  print(i)
+}
+
+#print odd numbers using next statement
+x<- seq(1:17)
+
+for (i in x) {
+  if(i%%2==0){
+    next
+  }
+  print(i)
+}
+
+## Print number greater than 20 
+
+x = 15:25
+for (i in x) {
+  if (i>=20) {
+    next
+  }
+  print(i)
+}
+
+#Print multiplication table of upto 7*24 but only even multiple
+x=1:24
+for (i in x){
+  if (i%%2!=0){
+    next
+  }
+  print(paste('7 x',i,'=',7*i))  
+}
+##Create a numeric vector of length 2 and print its 
+#max element. 
+
+#Create a numeric vector of length 3 and print its 
+#max element. 
+
+c = c(7,3,8)
+
+if (c[1]>c[2]) {
+  if (c[1]>c[3]) {
+    print(c[1])
+    
+  }}else if (c[2]>c[3]){
+    print(c[2])
+  }else{
+    print(c[3])
+  }
+
+t = c(1,2,3)
+for (i in t) {
+  print(t[i])
+}
+
+#t = c(1,2,3)
+for (i in c(1,2,3)) {
+  print(i)
+}
+print(2,"is positive")
+
+for(q in 0:400){
+  q = q+2
+  print(q)
+}
+
+for(q in seq(0,400,2)){
+  #q = q+2
+  print(q)
+}
+
+for (variable in vector) {
+  if (condition) {
+    
+  }
+}
+
+x = c(20,21,22,45,67,98,7,66,10,32,21)
+for (i in x) {
+  print(x)
+  
+}
+
+x = c(20,21,22,45,67,98,7,66,10,32,21)
+for (i in x) {
+  print(i)
+  
+}
+
+

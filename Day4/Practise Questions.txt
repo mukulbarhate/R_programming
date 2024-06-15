@@ -1,0 +1,42 @@
+factorial(2)
+
+How many numbers between 100 and 1000 
+have 4 in the units place?
+
+In a test, 5 questions are of the form 'state, 
+true or false'. No student has got all answers 
+correct. Also, the answer of every student 
+is different. Find the number of students 
+appeared for the test
+
+A letter lock has 3 rings and each ring has 5 
+letters. Determine the maximum number of 
+trials that may be required to open the lock.
+
+A school has three gates and four staircases 
+from the first floor to the second floor. How 
+many ways does a student have to go from 
+outside the school to his classroom on the 
+second floor?
+
+
+Determine the number of arrangements of 
+letters of the word ALGORITHM if.
+ (a) vowels are always together.
+ (b) no two vowels are together.
+ (c) consonants are at even positions.
+ (d) O is the first and T is the last letter
+
+In a group photograph, 6 teachers are in the 
+first row and 18 students are in the second 
+row. There are 12 boys and 6 girls among the 
+students. If the middle position is reserved 
+for the principal and if no two girls are 
+together, find the number of arrangements.
+
+3 boys and 3 girls are to sit in a row. How 
+many ways can this be done if 
+(i) there are no restrictions
+ (ii) there is a girl at each end
+ (iii) boys and girls are at alternate places
+ (iv) all boys sit together

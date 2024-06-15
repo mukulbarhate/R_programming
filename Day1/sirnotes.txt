@@ -1,0 +1,1141 @@
+# Basic Arithmetic operations
+
+192+250 #Addition
+955-380 #Subtraction
+20*100 #Multiplication
+50/5 #Division
+5^4 #Exponent
+18%%7 #Modulo - returns the remainder
+(500*2)+(80/2) #Order of operations
+500*(2+1) #Order of operation
+
+# Assigning variables
+selling <- 500               #Assign variable1
+cost <- 250                  #Assign variable2
+profit <- selling - cost     #Assign variable3
+profit                       #Displays the value stored in profit
+
+# Data types in R
+num <- 3.7 #Decimals are part of the Numeric class in R
+
+i <- 10 #Whole numbers are known as integers
+typeof(x) #To check the data type of the variable
+
+t <- TRUE
+f <- FALSE #Boolean values are part of the logical class
+typeof(t)
+
+ch <- "HELLO" #Text/string values are known as characters 
+class (ch) #Checks the data type of a variable
+typeof(ch) #Checks the data type of a variable
+
+c <- 1+2i #R supports complex data type too
+class(c)
+length(ch)
+
+# Using the Print function
+
+print ("hey") #Prints hey on the screen 
+
+y <- 20
+print(y) #Prints the value of y
+
+x <- mtcars
+print (mtcars) #Prints the mtcars dataset
+
+print(paste('hello','students'))  #Paste function
+
+print(paste('hello','students',sep=',')) #Sep is for the chosen separator between the pasted items
+
+paste0('hello','students')  #Displays without space
+
+sprintf("%s is %f feet tall", "A", 5.1) #Returns a character vector containing a formatted combination of text and variable values 
+?sprintf
+# Vectors in R
+
+# Create vectors
+vec1<-c(10,20,30)
+vec1
+class(vec1)
+
+vec2<-c("a","b","c")
+vec2
+class(vec2)
+
+vec3<-c(TRUE,FALSE,TRUE)
+vec3
+class(vec3)
+
+# Print the above 3 vectors at once with semicolon
+vec1;vec2;vec3 #';' is used to separate 2 or more variables
+
+vec4<-c(10,"a",TRUE) #R converts every value to character type
+vec4
+class(vec4)
+
+vec5 <- c(FALSE,2) #R converts every value to numeric type
+vec5
+class(vec5)
+
+vec6 <- c('A',1)
+vec6
+class(vec6)
+
+vec7<-c(1:20)
+vec7
+
+vec8<-seq(1,20)
+vec8
+
+vec9<-1:25
+vec9
+
+#Create a vector with odd values b/w 1 to 20
+
+odd_value<-seq(1,20,2)
+odd_value
+
+#Create a vector with even values b/w 1 to 20
+
+even_value<-seq(2,20,2)
+even_value
+
+#Create vector with 10 odd values starting from 20
+
+vec10<-seq(from=21,by=2,length.out=10)
+vec10
+
+# Naming your vectors using names() function
+
+temperature <- c(72,71,68,73,69,75,71)
+temperature
+
+names(temperature) <- c('Mon','Tue','Wed','Thu','Fri','Sat','Sun')
+temperature
+
+# Another way to name your vectors
+
+days <- c('Mon','Tue','Wed','Thu','Fri','Sat','Sun')
+temperature1 <- c(40,45,60,30,36,12,29)
+names(temperature1) <- days
+temperature1
+
+# One more way to give names to each price values
+price<-seq(100,220,20)
+names(price)<-paste0("p",1:7)
+price
+
+# Basic operation on Vectors
+
+v1 <- c(2,1,4)
+v2 <- c(5,6,7)
+
+# Add 2 vectors
+v1+v2
+
+# Subtract 2 vectors
+v2-v1
+
+# Multiply 2 vectors
+v1*v2
+
+# Divide 2 vectors
+v1/v2
+
+# Using basic maths functions with vectors
+v1
+
+sum(v1) # Add the values in a vector
+sd(v1) # Finds the standard deviation
+var(v1) # To display the variance
+prod(v1) # Give the product of the vector values
+max(v1) # Returns the maximum value 
+min(v1) # Returns the minimun value
+
+# Comparing vectors using comparision operators
+
+v1 <- c(19,12,45)
+v2 <- c(19,20,30)
+
+v1<v2
+v1>v2
+v1!=v2
+v1==v2
+
+v <- c(1,2,3,4,5)
+v<3
+
+# Vector slicing and indexing
+
+price1<-seq(550,670,20)
+names(price1)<-paste0("p",1:7)
+price1
+
+#1. Using index position
+price1[3]
+price1[3:4]
+price1[c(1,4)]
+price1[c(2,6)]
+
+#2. Indexing with names
+price1[c("p3")]
+price1[c("p3","p4","p7")]
+price1["p3"]
+
+#3.Using logical position
+price1[c(T,F,T,T,F,F,F)]
+price1[c(T,F)]
+
+#4.Using exclude position method
+price1[-2]
+price1[c(-2,-5)]
+
+#5. Using comparision operator
+price1[price1>600]
+
+filter <- price1>600
+price1[filter]
+
+# Handling NA values in vectors
+
+order_detail <-c (10,20,30,NA,50,60)
+order_detail
+names(order_detail) <-c ("Mon","Tue","Wed","Thu","Fri","Sat")
+order_detail
+order_detail + 5 #Any operation peformed on vector, will be applied to all the values of vector
+
+#To add two vectors
+
+new_order <- c(5,10)
+order_detail + new_order
+update_order <- order_detail+new_order
+update_order
+
+#Creating subset of vector
+
+firsttwo<-order_detail[1:2]
+firsttwo
+l<-length(order_detail)
+l
+
+v1<-order_detail[(l-1):l]
+v1
+v2<-order_detail[(l-1):2]
+v2
+v3<-order_detail[l:1]
+v3
+v4<-order_detail[(l-2):l]
+v
+
+#Extract all the values below 30
+order_detail<30
+order_detail[order_detail<30]
+
+#To omit NA vaue from the vector
+na.omit(order_detail[order_detail<30])
+
+#To find the order details that are multiple of 3
+
+(order_detail %% 3)==0
+order_detail[(order_detail %% 3)==0]
+na.omit(order_detail[(order_detail %% 3)==0])
+
+sum(order_detail) #Returns NA because there is an NA value in the order detail vector
+
+# Use na.rm to remove the NA value
+sum(order_detail,na.rm=T)
+
+mean(order_detail,na.rm=T)
+max(order_detail,na.rm=T)
+min(order_detail,na.rm=T)
+sd(order_detail,na.rm=T)
+sqrt(order_detail) # returns the square root
+
+##-----------Matrix in R-------------------##
+
+# We use function matrix() to create a matrix
+
+v <- 20:30
+v
+matrix(v)
+
+mat1<-matrix(1,3,3)
+mat1
+det(mat1)
+mat2<-matrix(1:9,3,3)
+mat2
+
+mat3<-matrix(1:9,nrow=3,byrow=T)
+mat3
+mat3<-matrix(1:9,3,3,byrow=T)
+mat3
+
+# Creating matrix from vectors
+
+stock1 <- c(450,451,452,445,468)
+stock2 <- c(230,231,232,236,228)
+stocks <- c(stock1,stock2) # Merge both the vectors
+stocks
+stock.matrix <- matrix(stocks,byrow=TRUE,nrow=2)
+stock.matrix
+
+# Naming a matrix using colnames() and rownames()
+
+days <- c('Mon','Tue','Wed','Thu','Fri')
+st.names <- c('stock1','stock2')
+
+colnames(stock.matrix) <- days
+rownames(stock.matrix) <- st.names
+
+stock.matrix
+
+# Functions associated with matrix
+
+nrow(mat3) #returns no. of rows
+ncol(mat3) #returns no. of columns
+dim(mat3) #returns no. of rows and columns
+rownames(stock.matrix) #returns row names
+colnames(stock.matrix) #returns column names
+dimnames(stock.matrix) #returns row and column names
+
+# Arithmetic operations in Matrix
+
+mat1 <- matrix(1:50,byrow=TRUE,nrow=5)
+mat1
+
+# Matrix addition
+5+mat1
+
+# Matrix multiplication
+5*mat1
+
+# Division of matrix
+
+2/mat1 # returns the reciprocal
+
+# Division of matrix
+
+mat1/2 # returns the quotient
+
+# Exponent
+
+mat1 ^ 2
+
+# Matrix arithmetic with multiple matrices
+
+mat1 + mat1
+mat1-mat1
+mat1*mat1
+
+mata = matrix(c(1:4),2,2);mata
+matb = matrix(c(5:8),2,2);matb
+
+mata%*%matb
+# Matrix operations
+
+colSums(stock.matrix) # Returns the sum for each column
+rowSums(stock.matrix) # Returns the sum for each row
+rowMeans(stock.matrix) # Returns the mean for each row
+
+# Adding rows and columns to a matrix using rbind() and cbind() function
+
+stock3 <- c(150,151,149,120,114)
+total_stock <- rbind(stock.matrix,stock3)
+total_stock
+
+avg <- rowMeans(total_stock)
+avg
+
+total_stock <- cbind(total_stock,avg)
+total_stock
+
+# Matrix selection and indexing
+
+student<-matrix(c(20,30,NA,70,22,28,36,80,24,26,32,75,26,24,NA,50),nrow=4,ncol=4,byrow=T)
+dimnames(student)<-list(c("John","Mathew","Sam","Alice"),c("Phy","Chem","Bio","Maths"))
+student
+
+# Extraction of columns
+
+student[,1]
+student[,1:2]
+student[,c(1,3)]
+
+# Extraction of rows
+
+student[1,]
+student[1:2,]
+student[c(1,3),]
+student[2,2]
+student[2,2:4]
+
+student[3:4,2:3]
+student[2:4,c(1,4)]
+
+#Find John's score in Chem and Bio
+student["John",2:3]
+student["John",c("Chem","Bio")]
+#Find John's and Sam's score in maths
+student[c("John","Sam"),4]
+
+#Find maths & Bio score of Sam and Alice
+student[c("Sam","Alice"),3:4]
+
+#Find average score of John
+mean(student[c("John"),],na.rm=T)
+
+#Find the average and the total score for all the students
+apply(student,1,mean,na.rm=T) #here 1 stands for the row and 2 is for columns
+help(apply)
+apply(student,1,sum,na.rm=T)
+
+passing_score<-c(25,25,25,70)
+passing_score
+
+#Find in how many subjects Alice has passed
+pass<-(student[c("Alice"),]>passing_score)
+pass
+sum(pass, na.rm = T)
+
+#Find in how many subjects Sam has passed
+pass1<-(student[c("Sam"),]>passing_score)
+pass1
+sum(pass1, na.rm = T)
+
+#----------DataFrames in R---------------#
+
+# Check the list of pre-loaded dataset
+
+data()
+data(AirPassengers)
+head(AirPassengers)
+data(iris)
+head(iris)
+View(iris)
+View(state.x77)
+View(USPersonalExpenditure)
+tail(USPersonalExpenditure)
+
+# Check the statistical summary of a dataset
+summary(iris)
+
+# Check the structure of a dataset
+str(iris)
+
+# Creating a data frame using data.frame() function
+
+days <- c('mon','tue','wed','thu','fri')
+temp <- c(25.6,30.1,45,37.3,41.2)
+rain <- c(TRUE, TRUE, FALSE, FALSE, TRUE)
+
+df <- data.frame(days,temp,rain)
+print(df)
+summary(df)
+str(df)
+
+# Dataframe indexing
+
+df[1,] # Extract the first row
+df[,2] # Extract the second row
+
+# Selecting using column names
+df[,'temp'] # Extracts all the temperature values
+df[2:4,c('days','temp')] # extracts the 2nd, 3rd and 4th rows for days and temp
+
+# Use dollar sign if you want all the values of a particular column 
+
+df$days
+df$rain
+
+# Use bracket notation to return a data frame format of the same information
+df['rain']
+df['temp']
+
+# Filtering dataframes using a subset function
+
+subset(df,subset=rain==TRUE) # Returns all the columns where it rained 
+subset(df,subset= temp>25) # Returns all the columns where temperature>25
+
+# Sorting dataframes using order function
+
+sorted.temp <- order(df['temp'])
+df[sorted.temp,] # Returns the all the columns with temp sorted in ascending order
+sorted.temp
+
+desc.temp <- order(-df['temp']) # Returns the all the columns with temp sorted in descending order
+df[desc.temp,]
+
+# Another method to sort
+sort.temp <- order(df$temp)
+df[sort.temp,]
+
+# Merging Data Frames
+
+authors <- data.frame(
+    surname = I(c("Tukey", "Venables", "Tierney", "Ripley", "McNeil")),
+    nationality = c("US", "Australia", "US", "UK", "Australia"),
+    deceased = c("yes", rep("no", 4)))
+
+books <- data.frame(
+    name = I(c("Tukey", "Venables", "Tierney",
+               "Ripley", "Ripley", "McNeil", "R Core")),
+    title = c("Exploratory Data Analysis",
+              "Modern Applied Statistics ...",
+              "LISP-STAT",
+              "Spatial Statistics", "Stochastic Simulation",
+              "Interactive Data Analysis",
+              "An Introduction to R"),
+    other.author = c(NA, "Ripley", NA, NA, NA, NA,
+                     "Venables & Smith"))
+
+authors
+books
+
+(m1 <- merge(authors, books, by.x = "surname", by.y = "name"))
+
+# Example to manipulate a dataframe 
+
+salesreport<-data.frame(Id=101:110,
+                        Product=c("A","B"),
+                        Unitprice=as.integer(runif(10,100,200)),
+                        Qty=as.integer(runif(10,10,20))
+)
+salesreport
+
+#1.Transpose data frame
+transpose.salesreport<-t(salesreport)
+View(transpose.salesreport)
+head(transpose.salesreport)
+
+#2.Sorting of data frame
+salesreport[order(salesreport$Unitprice),]
+salesreport[order(salesreport$Unitprice,decreasing = T),]
+
+salesreport[order(salesreport$Product,-salesreport$Unitprice),]
+
+#3.Subsetting data frame
+
+subset.ProductA<-subset(salesreport,Product=="A")
+subset.ProductA
+
+# Extact the rows for which Product is A and Unitprice > 150
+subset.salesreport<-subset(salesreport,Product=="A" & Unitprice>150)
+subset.salesreport
+
+# Extract only the first and the fourth column Product is A and Unitprice > 150
+subset.salesreport<-subset(salesreport,Product=="A" & Unitprice>150,c(1,4))
+subset.salesreport
+
+#4.Merging of data frame
+
+setA<-subset(salesreport,Product=="A")
+setB<-subset(salesreport,Product=="B")
+setA
+setB
+cbind(setA,setB)
+rbind(setA,setB)
+
+#5.Aggregate function
+#Total quantity sold for each product
+
+aggregate(salesreport$Qty,list(salesreport$Prod),sum,na.rm=T)
+
+#----------------------Lists in R------------------#
+
+list_1<-list(x=c(10,20,30),
+            y=c("a","b","c"),
+            z=c(TRUE,FALSE))
+list_1
+
+list2<-list(vec=seq(1:10),
+            mat=matrix(1:9,3,3),
+            lis=list(a=10,b=20))
+
+list2
+
+# Recursive variable->Variable that can store values of its own type.
+is.recursive(list2)
+
+# Indexing of list
+
+list2[2] # By index
+list2$mat # By dollar notation
+list2['vec'] # By name
+list2$lis[2] #3rd element 2nd value
+list2[[3]][2] #3rd element 2nd value
+
+length(list2)
+class(list2)
+
+#Conversion of vectors to list
+
+price<-c(10,20,30)
+pricelist<-as.list(price)
+pricelist
+price
+
+#Conversion of list to vector
+
+newPrice<-unlist(pricelist)
+newPrice
+
+# Use dim function to convert vectors to matrix
+
+price1<-c(10,20,30,40)
+dim(price1)<-c(2,2)
+price1
+
+#----------Basic data type functions------------#
+n1<-10
+class(n1) # Returns the datatype of the variable
+typeof(n1)
+n2<-10.5
+class(n2)
+typeof(n2)
+
+is.numeric(n1)  #is.numeric() function returns True if given value is numeric else false
+is.numeric(n2)
+
+I1<-as.integer(10) #as.integer converts the given value into integer
+I1
+I2<-as.integer(10.5)
+I2
+I3<-as.integer("10")
+class(I2)
+class(I1)
+class(I3)
+
+#All integers are numeric but all numerics are not integers.
+
+is.numeric(I1) #TRUE
+is.integer(I1) #TRUE
+
+c1<-"John"
+c2<-"Rob"
+class(c1)
+class(c2)
+is.character(c1)
+is.character(c2)
+
+toupper(c1) # Converts to uppercase
+substr(c1,1,2) # Extract set of characters
+name<-paste(c1,c2)
+name
+name1<-paste0(c1,c2)
+name1
+name<-paste(c1,c2,sep=",")
+name
+newname<-sub("Rob","Cena",name) # Replaces set of characters
+newname
+length(c1)
+nchar(c1)
+
+
+#### Assignment & Introduction ####
+
+#To run any command press Ctrl + Enter
+#You can write a comment in the script by starting a line with the "#" sign
+#A comment is not run by R when you press ctrl + Enter
+#R is Case Sensitive
+#rm(list = ls()) to clear environment
+#cat("\014") to Clear Console
+cat("\014")
+rm(list = ls())
+##Assignment
+#rm(list = ls())
+#cat("\014")
+x = 2 #Created an Object having value 2
+ print(x)
+x
+class(x)
+z = 4L
+z
+class(z)
+print(x)
+print(X)
+
+X = 5
+X
+rm(list = ls())
+
+print(x)
+x
+y <- 2
+y
+x
+Z = "Hello"
+print(Z)
+#print
+print("Hello World")
+
+class(x)
+class(y)
+class(Z)
+
+#### Vectors ####
+
+#Types of Vectors
+
+# Creating a sequence from 8 to 17.
+v <- 8:17
+v
+print(v)
+
+# Creating a sequence from 5.5 to 17.5.
+v <- 5.5:17.5
+print(v)
+print(v)
+
+# If the final element specified does not belong to the sequence 
+#then it is discarded.
+v <- 3.8:11.4
+print(v)
+
+#Using sequence (Seq.) operator
+?seq
+# Create vector with elements from 5 to 9 incrementing by 0.5
+s <- seq(5, 9, by = 0.5)
+length(s)
+print(s)
+?seq
+# Create vector with elements from 10 to 20 incrementing by 0.1
+# print even number between 10 to 20 
+#print multiple of 7 from 7 to 100
+#Using the c() function
+### VECTORS
+
+v = c(14,26,38,30) ### use c() to store several values in one variable
+v
+class(v)
+length(v)
+v[1]
+v[1:3]
+v[2] = 27
+v_1 <- c(12.111,12.2)
+
+v_1 = as.integer(v_1)
+class(v_1)
+v_2= c("Hello","Good morning","Nice to meet you","Me too")
+v_2
+class(v_2)
+v_2[1]
+v_2[1:2]
+v_2[2:3]
+
+v_2[1] <- "A"
+v_2
+
+v_3 = c(10,20,30,"Hello")
+class(v_3)
+grade <- c("A","B","c","D","E")
+class(grade)
+grade <- as.factor(grade)
+grade <- as.character(grade)
+class(grade)
+class(v_1)
+class(v)
+class(v_2)
+class(v_3)
+
+
+#The non-character values are coerced
+#to character type if one of the elements is a character.
+# The logical and numeric values are converted to characters.
+s <- c('apple',"red",5,TRUE)
+print(s)
+class(s)
+s[1] #Print first value
+s[4] #Print fourth value
+t <- c(F,5,TRUE)
+class(t)
+
+#Accessing vector elements
+#You can access an individual element of a vector by its position (or "index"), 
+#indicated using square brackets.
+#In R, the first element has an index of 1
+
+grade <- c("A","B","c","D","E")
+grade[5] <- "O" #update the fifth element from "E" to "O"
+# Call 3rd value of v
+v[3]
+
+g = c(7,9,0,TRUE)
+g
+class(g) #numeric
+letters
+LETTERS
+#You can also change the elements of a vector using the same notation 
+#as you use to access them:
+##create a vector and store first 5 multiple of 5,first 5 multiple of 7 & first 5 multiple of 16 in it.
+v[1] <- 5
+
+#You can access multiple elements of a vector by specifying a vector of element indices
+#Inside the square brackets.
+v <- c(10,12,14,16,18,20,22,24,26,28,30,32)
+length(v) #to check the length of vector
+rev(v)
+?rev
+v[c(1,2)] #First & Second element of vector v
+v[c(1,5,10)]
+v[1:3] #First 3 elements
+
+rev(v) #Print the reverse
+v[-1] #remove first element
+v_updated = v[-1]
+v[c(-1:-2)]
+dummy <- v[c(-1:-3)]
+#
+v = -5:5
+print(v)
+v[v>0]
+v[v<0]
+
+#finding index from name
+k = c(11,13,15,7,8,9)
+which((k == 11))
+
+Roll <- c(1:20)
+Roll[c(5,10,15,20)]
+Roll_5 <- Roll[c(5,10,15,20)]
+
+Roll <- c(1:100)
+seq(5,100,5)
+Roll[seq(5,100,5)]
+Roll_5 <- Roll[seq(5,100,5)]
+Roll_5
+
+#Create a vector "F" store any 50 elements in it
+#then create another vector "J" and store random 5 
+#positions in it and then access elements from F
+# with specified position in J.
+
+
+a <- 'a'
+class(a)
+b <- 'bcd'
+class(b)
+
+v <- seq(6,12, by = 2)
+v
+
+m <- seq(12,6, by = -2)
+m[-1]
+m[-1:-3]
+
+v[2]=17
+v[-1]
+v[-1:-3:-5]
+c <- v[! v %in% c(14,18)]
+
+v
+#Logical Data Type
+l <- T
+class(l)
+l_1 <- TRUE
+class(l_1)
+
+l_2 <- "TRUE"
+class(l_2)
+
+
+#Numeric Data Type
+Num1 = 63.5
+class(Num1)
+
+#Integer Data Type
+Num2 = 63L
+class(Num2)
+
+#Complex data type
+comp1 = 3+2i
+class(comp1)
+
+#### Operators ####
+#Arithmetic Operators
+x <- 4
+y <- 17
+
+#Addition
+x+y
+#Subtraction
+x-y
+#Multiplication
+x*y
+#Division
+y/x
+#Integer Division
+y%/%x
+#Modulus(Remainder From Division)
+y%%x
+#Exponent
+y^x
+
+####
+x_1 <- c(1,2,3,4)
+y_1 <- c(5,6,7,8)
+
+#Addition
+x_1+y_1
+#Subtraction
+x_1-y_1
+#Multiplication
+x_1*y_1
+#Division
+y_1/x_1
+#Integer Division
+y_1%/%x_1
+#Modulus(Remainder From Division)
+y_1%%x_1
+#Exponent
+y_1^x_1
+
+##
+
+x_1 <- c(1,2,3,4)
+y_1 <- c(5,6,7)
+
+#Addition
+x_1+y_1
+#Subtraction
+x_1-y_1
+#Multiplication
+x_1*y_1
+#Division
+y_1/x_1
+#Integer Division
+y_1%/%x_1
+#Modulus(Remainder From Division)
+y_1%%x_1
+#Exponent
+y_1^x_1
+
+
+#
+x_1 <- c(1,2,3,4,5,6)
+y_1 <- c(5,6,7)
+
+#Addition
+x_1+y_1
+#Subtraction
+x_1-y_1
+#Multiplication
+x_1*y_1
+#Division
+y_1/x_1
+#Integer Division
+y_1%/%x_1
+#Modulus(Remainder From Division)
+y_1%%x_1
+#Exponent
+y_1^x_1
+
+x_1 <- c(1,2,3,4,11,12,13)
+y_1 <- c(5,6,7,8)
+
+x_1+y_1
+#
+8.9%/%2.9
+
+x = 10
+y = 3
+y%%x
+x%%y
+  
+#Relational Operators
+
+
+x <- 18
+y <- 17
+
+#Less than
+x<y
+#Greater than
+x>y
+#Less than or equal to
+x<=9
+#Greater than or equal to
+y>=17
+#Equal to
+y == 17
+
+#Not equal to
+x != 18
+
+x_1 <- c(17,18,19,20)
+y_1 <- c(17,18,19,20)
+
+#Less than
+x_1<y_1
+#Greater than
+x_1>y_1
+#Less than or equal to
+x_1<=9
+#Greater than or equal to
+y_1>=17
+#Equal to
+y_1 == 17
+
+#Not equal to
+x_1 != 18
+
+
+x_1 == y_1
+
+z <- c(1,3,T)
+class(z)
+
+
+#Logical Operators
+#Zero is considered as FALSE and non-zero numbers are taken as TRUE
+#Operators & and | perform element-wise operation 
+
+#But && and || examines only the first element of the operands resulting into a single length logical vector.
+
+x <- c(TRUE,FALSE,0,8)
+y <- c(TRUE,FALSE,FALSE,TRUE)
+
+a <- c(1,1,0,1)
+b <- c(0,1,0,1)
+class(x)
+class(y)
+!a
+
+
+#Logical NOT
+!x
+#Element-wise logical AND
+x&y
+#Logical AND
+x&&y
+#Element-wise logical OR
+x|y
+#Logical OR
+x||y
+
+x <- c(TRUE,FALSE,0,8);length(x);class(x)
+y <- c(TRUE,FALSE,1,7);length(y);class(y)
+
+x && y
+x || y
+#Miscellanous Operator
+
+#This operator is used to identify if an element belongs to a vector.
+v1 <- 2
+v2 <- 12
+t <- 1:10
+print(v1 %in% t) 
+print(v2 %in% t) 
+
+s <- "b"
+vowel <- c("a","e","i","o","u")
+s %in% vowel
+
+#Take input from the user and check whether it is vowel or not
+
+
+#This operator is used to multiply a matrix 
+
+M = matrix( c(2,6,5,1,10,4), nrow = 2,ncol = 3,byrow = TRUE)
+t = M %*% t(M)
+print(t)
+
+M = matrix( c(2,6,5,1,10,4,1,2,3), nrow = 3,ncol = 3,byrow = TRUE)
+M1 = matrix( c(1,6,5,1,10,4,1,2,3), nrow = 3,ncol = 3,byrow = TRUE)
+t = M %*% M1
+
+#### MATRICES ####
+?matrix
+M = matrix(nrow=2,ncol=2)
+v <- c(10,20,30,40)
+matrix(v)
+# Create matrix with values from my_vector, 2 rows and 2 columns
+M = matrix(v,nrow=2,ncol=2,dimnames = list(c("A","B"),c("X","Y")))
+M = matrix(v,nrow=2,ncol=2)
+M = matrix(v,nrow=2,ncol=2,byrow = T)
+# Call
+M
+M_2 = matrix(1:9, nrow= 3, ncol = 3, byrow = FALSE)
+M_3 = matrix(1:9, nrow= 3, ncol = 3, byrow = TRUE)
+M_3
+
+# Create vector with 9 integers from 1 to 9
+1:9
+
+
+M_2 = matrix(1:9, nrow= 3, ncol = 3);M_2
+M_2
+
+
+# Access value on second row, second column
+M_2[2,2]
+
+# Access value on first row, second column
+M_2[1,2]
+
+# Access value on Third row, First column
+M_2[3,1]
+# Access second row
+M_2[2,] 
+
+
+# Access second column
+M_2[,2]
+
+# Access sub-matrix with components on both first 2 rows and first 2 columns
+M_2[1:2,1:2]
+
+# Access sub-matrix with components that are not on 3rd row and 3rd column
+M_2[-3,-3]
+
+M_2[3,3]
+
+M_2[3,3]
+
+#Transpose of Matrix
+t(M_2)
+
+###Sir what if we want a specific no. of columns and don't know the no. of rows.... as about high no. of elements?
+M_2 = matrix(1:26, ncol = 3)
+M_2
+
+M_2 = matrix(1:26, 3)
+
+#Write a R program to create two 2*3 matrix and add,subtract
+#multiply,and divide the matrix.
+
+#Acessing rownames & Colnames
+rownames(M)
+colnames(M)
+
+#Update rownames  & Colnames
+
+rownames(M) <- c("Rohit","Virat")
+colnames(M) <- c("Stokes","Root")
+
+#creating Diagonal matrix
+?diag
+
+D = diag(c(5,3,3),3,3)
+
+D = diag(c(1,1,1),3,3)
+
+I = diag(2,3,3)
+
+M = matrix( c(2,6,5,1,10,4), nrow = 2,ncol = 3,byrow = TRUE)
+t = M %*% t(M)
+print(t)
+
+M = matrix( c(2,6,5,1,10,4,1,2,3), nrow = 3,ncol = 3,byrow = TRUE)
+M1 = matrix( c(1,6,5,1,10,4,1,2,3), nrow = 3,ncol = 3,byrow = TRUE)
+t = M %*% M1
+
+#create a vector ('hello','i','am',24,50,60,45,'rrr'), 
+  #check if 'am' character is present in the vector or not. 
+  #and create the matrix of the same vector having 2 rows and 4 columns.
+
+d=c('hello','i','am',24,50,60,45,'rrr')
+
+'am' %in% d
+
+matrix(d,nrow=2,ncol=4,byrow=T)
+
